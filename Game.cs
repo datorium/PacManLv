@@ -26,6 +26,18 @@ namespace PacManSimple
             Enemy.BackColor = Color.Blue;
         }
 
+        private void HeroBorderCollision()
+        {
+            if(Hero.Top + Hero.Height < 0)
+            {
+                Hero.Top = ClientRectangle.Height;
+            }
+            else if(Hero.Top > ClientRectangle.Height)
+            {
+                Hero.Top = 0 - Hero.Height;
+            }
+        }
+
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {            
             if(e.KeyCode == Keys.Up)
@@ -44,6 +56,8 @@ namespace PacManSimple
             {
                 Hero.Left += heroStep;
             }
+
+            HeroBorderCollision();
         }
     }
 }
