@@ -13,6 +13,9 @@ namespace PacManSimple
     public partial class Game : Form
     {
         private int heroStep = 5;
+        int verVelocity = 0;
+        int horVelocity = 0;
+
         public Game()
         {
             InitializeComponent();
@@ -24,6 +27,8 @@ namespace PacManSimple
             Hero.BackColor = Color.DarkSalmon;
             Food.BackColor = Color.Green;
             Enemy.BackColor = Color.Blue;
+            //starging timers
+            TimerHeroMove.Start();
         }
 
         private void HeroBorderCollision()
@@ -36,27 +41,45 @@ namespace PacManSimple
             {
                 Hero.Top = 0 - Hero.Height;
             }
+            if (Hero.Left + Hero.Width < 0)
+            {
+                Hero.Left = ClientRectangle.Width;
+            }
+            else if (Hero.Left > ClientRectangle.Width)
+            {
+                Hero.Left = 0 - Hero.Width;
+            }
         }
 
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {            
             if(e.KeyCode == Keys.Up)
             {
-                Hero.Top -= heroStep;
+                verVelocity = -heroStep;
+                horVelocity = 0;
             }
             else if(e.KeyCode == Keys.Down)
             {
-                Hero.Top += heroStep;
+                verVelocity = heroStep;
+                horVelocity = 0;
             }
             else if(e.KeyCode == Keys.Left)
             {
-                Hero.Left -= heroStep;
+                verVelocity = 0;
+                horVelocity = -heroStep;
             }
             else if(e.KeyCode == Keys.Right)
             {
-                Hero.Left += heroStep;
+                verVelocity = 0;
+                horVelocity = heroStep;
             }
+            
+        }
 
+        private void TimerHeroMove_Tick(object sender, EventArgs e)
+        {
+            Hero.Top += verVelocity;
+            Hero.Left += horVelocity;
             HeroBorderCollision();
         }
     }
