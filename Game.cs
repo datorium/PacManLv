@@ -26,11 +26,13 @@ namespace PacManSimple
 
         private void SetUpGame()
         {
-            Hero.BackColor = Color.DarkSalmon;
+            this.BackColor = Color.Blue;
+            Hero.BackColor = Color.Transparent;
             Food.BackColor = Color.Green;
-            Enemy.BackColor = Color.Blue;
+            Enemy.BackColor = Color.Red;
             //starging timers
             TimerHeroMove.Start();
+            TimerHeroAnimate.Start();
         }
 
         private void HeroBorderCollision()
@@ -59,21 +61,25 @@ namespace PacManSimple
             {
                 verVelocity = -heroStep;
                 horVelocity = 0;
+                heroDirection = "up";
             }
             else if(e.KeyCode == Keys.Down)
             {
                 verVelocity = heroStep;
                 horVelocity = 0;
+                heroDirection = "down";
             }
             else if(e.KeyCode == Keys.Left)
             {
                 verVelocity = 0;
                 horVelocity = -heroStep;
+                heroDirection = "left";
             }
             else if(e.KeyCode == Keys.Right)
             {
                 verVelocity = 0;
                 horVelocity = heroStep;
+                heroDirection = "right";
             }
             
         }
@@ -90,6 +96,11 @@ namespace PacManSimple
             string heroImageName;
             heroImageName = "pacman_" + heroDirection + "_" + heroImageCount;
             Hero.Image = (Image)Properties.Resources.ResourceManager.GetObject(heroImageName);
+            heroImageCount += 1;
+            if(heroImageCount > 4)
+            {
+                heroImageCount = 1;
+            }
         }
     }
 }
