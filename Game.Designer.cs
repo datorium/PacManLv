@@ -33,6 +33,7 @@
             this.Food = new System.Windows.Forms.PictureBox();
             this.Enemy = new System.Windows.Forms.PictureBox();
             this.TimerHeroMove = new System.Windows.Forms.Timer(this.components);
+            this.TimerHeroAnimate = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Hero)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Food)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Enemy)).BeginInit();
@@ -41,7 +42,7 @@
             // Hero
             // 
             this.Hero.BackColor = System.Drawing.Color.Coral;
-            this.Hero.Location = new System.Drawing.Point(56, 109);
+            this.Hero.Location = new System.Drawing.Point(156, 91);
             this.Hero.Name = "Hero";
             this.Hero.Size = new System.Drawing.Size(150, 150);
             this.Hero.TabIndex = 0;
@@ -68,6 +69,10 @@
             this.TimerHeroMove.Interval = 20;
             this.TimerHeroMove.Tick += new System.EventHandler(this.TimerHeroMove_Tick);
             // 
+            // TimerHeroAnimate
+            // 
+            this.TimerHeroAnimate.Tick += new System.EventHandler(this.TimerHeroAnimate_Tick);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -92,6 +97,7 @@
         private System.Windows.Forms.PictureBox Food;
         private System.Windows.Forms.PictureBox Enemy;
         private System.Windows.Forms.Timer TimerHeroMove;
+        private System.Windows.Forms.Timer TimerHeroAnimate;
     }
 }
 

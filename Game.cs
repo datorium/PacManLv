@@ -15,6 +15,8 @@ namespace PacManSimple
         private int heroStep = 5;
         int verVelocity = 0;
         int horVelocity = 0;
+        int heroImageCount = 1;
+        string heroDirection = "right";
 
         public Game()
         {
@@ -81,6 +83,13 @@ namespace PacManSimple
             Hero.Top += verVelocity;
             Hero.Left += horVelocity;
             HeroBorderCollision();
+        }
+
+        private void TimerHeroAnimate_Tick(object sender, EventArgs e)
+        {
+            string heroImageName;
+            heroImageName = "pacman_" + heroDirection + "_" + heroImageCount;
+            Hero.Image = (Image)Properties.Resources.ResourceManager.GetObject(heroImageName);
         }
     }
 }
