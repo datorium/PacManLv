@@ -16,6 +16,7 @@ namespace PacManSimple
         int verVelocity = 0;
         int horVelocity = 0;
         int heroImageCount = 1;
+        int score = 0;
         string heroDirection = "right";
         Random Rand = new Random();
 
@@ -35,7 +36,10 @@ namespace PacManSimple
             Food.BackColor = Color.Transparent;
             Food.SizeMode = PictureBoxSizeMode.StretchImage;
             Food.Image = Properties.Resources.food_1;
+            RandomizeFood();
             Enemy.BackColor = Color.Red;
+            //set up interface
+            UpdateScoreLabel();
             //starging timers
             TimerHeroMove.Start();
             TimerHeroAnimate.Start();
@@ -45,6 +49,8 @@ namespace PacManSimple
         {
             if (Hero.Bounds.IntersectsWith(Food.Bounds))
             {
+                score += 100;
+                UpdateScoreLabel();
                 RandomizeFood();
             }
         }
@@ -53,6 +59,11 @@ namespace PacManSimple
         {
             Food.Left = Rand.Next(0, ClientRectangle.Width - Food.Width);
             Food.Top = Rand.Next(0, ClientRectangle.Height - Food.Height);
+        }
+
+        private void UpdateScoreLabel()
+        {
+            ScoreLabel.Text = "Score: " + score;
         }
 
         private void HeroBorderCollision()
@@ -122,6 +133,11 @@ namespace PacManSimple
             {
                 heroImageCount = 1;
             }
+        }
+
+        private void ScoreLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

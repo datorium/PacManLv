@@ -34,6 +34,7 @@
             this.Enemy = new System.Windows.Forms.PictureBox();
             this.TimerHeroMove = new System.Windows.Forms.Timer(this.components);
             this.TimerHeroAnimate = new System.Windows.Forms.Timer(this.components);
+            this.ScoreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Hero)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Food)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Enemy)).BeginInit();
@@ -74,11 +75,23 @@
             // 
             this.TimerHeroAnimate.Tick += new System.EventHandler(this.TimerHeroAnimate_Tick);
             // 
+            // ScoreLabel
+            // 
+            this.ScoreLabel.AutoSize = true;
+            this.ScoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScoreLabel.Location = new System.Drawing.Point(12, 9);
+            this.ScoreLabel.Name = "ScoreLabel";
+            this.ScoreLabel.Size = new System.Drawing.Size(95, 36);
+            this.ScoreLabel.TabIndex = 3;
+            this.ScoreLabel.Text = "label1";
+            this.ScoreLabel.Click += new System.EventHandler(this.ScoreLabel_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ScoreLabel);
             this.Controls.Add(this.Enemy);
             this.Controls.Add(this.Food);
             this.Controls.Add(this.Hero);
@@ -89,6 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Food)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Enemy)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -99,6 +113,7 @@
         private System.Windows.Forms.PictureBox Enemy;
         private System.Windows.Forms.Timer TimerHeroMove;
         private System.Windows.Forms.Timer TimerHeroAnimate;
+        private System.Windows.Forms.Label ScoreLabel;
     }
 }
 
