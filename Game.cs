@@ -28,11 +28,24 @@ namespace PacManSimple
         {
             this.BackColor = Color.Blue;
             Hero.BackColor = Color.Transparent;
-            Food.BackColor = Color.Green;
+            Hero.SizeMode = PictureBoxSizeMode.StretchImage;
+            Hero.Width = 50;
+            Hero.Height = 50;
+            Food.BackColor = Color.Transparent;
+            Food.SizeMode = PictureBoxSizeMode.StretchImage;
+            Food.Image = Properties.Resources.food_1;
             Enemy.BackColor = Color.Red;
             //starging timers
             TimerHeroMove.Start();
             TimerHeroAnimate.Start();
+        }
+
+        private void HeroFoodCollision()
+        {
+            if (Hero.Bounds.IntersectsWith(Food.Bounds))
+            {
+                Food.Dispose();
+            }
         }
 
         private void HeroBorderCollision()
@@ -89,6 +102,7 @@ namespace PacManSimple
             Hero.Top += verVelocity;
             Hero.Left += horVelocity;
             HeroBorderCollision();
+            HeroFoodCollision();
         }
 
         private void TimerHeroAnimate_Tick(object sender, EventArgs e)
