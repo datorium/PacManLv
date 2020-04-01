@@ -50,7 +50,8 @@
             // 
             // Food
             // 
-            this.Food.Location = new System.Drawing.Point(586, 109);
+            this.Food.BackColor = System.Drawing.Color.Lime;
+            this.Food.Location = new System.Drawing.Point(639, 191);
             this.Food.Name = "Food";
             this.Food.Size = new System.Drawing.Size(50, 50);
             this.Food.TabIndex = 1;
