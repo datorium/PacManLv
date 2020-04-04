@@ -144,6 +144,7 @@ namespace PacManSimple
         {
             Enemy.Top += verEnemyVelocity;
             Enemy.Left += horEnemyVelocity;
+            EnemyBorderCollision();
         }
 
         private void TimerAnimate_Tick(object sender, EventArgs e)
@@ -208,6 +209,35 @@ namespace PacManSimple
                 verEnemyVelocity = -enemyStep;
                 horEnemyVelocity = 0;
             }
+        }
+
+        private void EnemyBorderCollision()
+        {
+            if (Enemy.Top < 0)
+            {
+                enemyDirection = "down";                
+            }
+            else if (Enemy.Top + Enemy.Height > ClientRectangle.Height)
+            {
+                enemyDirection = "up";
+                EnemyBorderBounce();
+            }
+            if (Enemy.Left < 0)
+            {
+                enemyDirection = "right";
+                EnemyBorderBounce();
+            }
+            else if (Enemy.Left + Enemy.Width > ClientRectangle.Width)
+            {
+                enemyDirection = "left";
+                EnemyBorderBounce();
+            }
+        }
+
+        private void EnemyBorderBounce()
+        {
+            verEnemyVelocity *= -1;
+            horEnemyVelocity *= -1;
         }
 
     }
