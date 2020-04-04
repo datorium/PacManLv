@@ -52,6 +52,8 @@ namespace PacManSimple
             //starging timers
             TimerMove.Start();
             TimerAnimate.Start();
+
+            RandomChangeEnemyDirection();
         }
 
         private void HeroFoodCollision()
@@ -121,7 +123,7 @@ namespace PacManSimple
                 horVelocity = heroStep;
                 heroDirection = "right";
             }
-            
+            RandomChangeEnemyDirection();
         }
 
         private void TimerMove_Tick(object sender, EventArgs e)
