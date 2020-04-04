@@ -32,8 +32,8 @@
             this.Hero = new System.Windows.Forms.PictureBox();
             this.Food = new System.Windows.Forms.PictureBox();
             this.Enemy = new System.Windows.Forms.PictureBox();
-            this.TimerHeroMove = new System.Windows.Forms.Timer(this.components);
-            this.TimerHeroAnimate = new System.Windows.Forms.Timer(this.components);
+            this.TimerMove = new System.Windows.Forms.Timer(this.components);
+            this.TimerAnimate = new System.Windows.Forms.Timer(this.components);
             this.ScoreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Hero)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Food)).BeginInit();
@@ -66,14 +66,14 @@
             this.Enemy.TabIndex = 2;
             this.Enemy.TabStop = false;
             // 
-            // TimerHeroMove
+            // TimerMove
             // 
-            this.TimerHeroMove.Interval = 20;
-            this.TimerHeroMove.Tick += new System.EventHandler(this.TimerHeroMove_Tick);
+            this.TimerMove.Interval = 20;
+            this.TimerMove.Tick += new System.EventHandler(this.TimerMove_Tick);
             // 
-            // TimerHeroAnimate
+            // TimerAnimate
             // 
-            this.TimerHeroAnimate.Tick += new System.EventHandler(this.TimerHeroAnimate_Tick);
+            this.TimerAnimate.Tick += new System.EventHandler(this.TimerAnimate_Tick);
             // 
             // ScoreLabel
             // 
@@ -111,8 +111,8 @@
         private System.Windows.Forms.PictureBox Hero;
         private System.Windows.Forms.PictureBox Food;
         private System.Windows.Forms.PictureBox Enemy;
-        private System.Windows.Forms.Timer TimerHeroMove;
-        private System.Windows.Forms.Timer TimerHeroAnimate;
+        private System.Windows.Forms.Timer TimerMove;
+        private System.Windows.Forms.Timer TimerAnimate;
         private System.Windows.Forms.Label ScoreLabel;
     }
 }

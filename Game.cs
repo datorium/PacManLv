@@ -41,8 +41,8 @@ namespace PacManSimple
             //set up interface
             UpdateScoreLabel();
             //starging timers
-            TimerHeroMove.Start();
-            TimerHeroAnimate.Start();
+            TimerMove.Start();
+            TimerAnimate.Start();
         }
 
         private void HeroFoodCollision()
@@ -115,7 +115,12 @@ namespace PacManSimple
             
         }
 
-        private void TimerHeroMove_Tick(object sender, EventArgs e)
+        private void TimerMove_Tick(object sender, EventArgs e)
+        {
+            HeroMove();
+        }
+
+        private void HeroMove()
         {
             Hero.Top += verVelocity;
             Hero.Left += horVelocity;
@@ -123,7 +128,12 @@ namespace PacManSimple
             HeroFoodCollision();
         }
 
-        private void TimerHeroAnimate_Tick(object sender, EventArgs e)
+        private void TimerAnimate_Tick(object sender, EventArgs e)
+        {
+            HeroAnimate();
+        }
+
+        private void HeroAnimate()
         {
             string heroImageName;
             heroImageName = "pacman_" + heroDirection + "_" + heroImageCount;
