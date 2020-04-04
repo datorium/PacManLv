@@ -16,8 +16,10 @@ namespace PacManSimple
         int verVelocity = 0;
         int horVelocity = 0;
         int heroImageCount = 1;
+        int enemyImageCount = 1;
         int score = 0;
         string heroDirection = "right";
+        string enemyDirection = "left";
         Random Rand = new Random();
 
         public Game()
@@ -131,6 +133,7 @@ namespace PacManSimple
         private void TimerAnimate_Tick(object sender, EventArgs e)
         {
             HeroAnimate();
+            EnemyAnimate();
         }
 
         private void HeroAnimate()
@@ -144,6 +147,18 @@ namespace PacManSimple
                 heroImageCount = 1;
             }
         }
+
+        private void EnemyAnimate()
+        {
+            string enemyImageName;
+            enemyImageName = "enemy_" + enemyDirection + "_" + enemyImageCount;
+            Enemy.Image = (Image)Properties.Resources.ResourceManager.GetObject(enemyImageName);
+            enemyImageCount += 1;
+            if (enemyImageCount > 2)
+            {
+                enemyImageCount = 1;
+            }
+        } 
 
         private void ScoreLabel_Click(object sender, EventArgs e)
         {
