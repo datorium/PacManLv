@@ -39,7 +39,10 @@ namespace PacManSimple
             Food.SizeMode = PictureBoxSizeMode.StretchImage;
             Food.Image = Properties.Resources.food_1;
             RandomizeFood();
-            Enemy.BackColor = Color.Red;
+            Enemy.BackColor = Color.Transparent;
+            Enemy.SizeMode = PictureBoxSizeMode.StretchImage;
+            Enemy.Height = 40;
+            Enemy.Width = 40;
             //set up interface
             UpdateScoreLabel();
             //starging timers
