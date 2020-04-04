@@ -15,6 +15,10 @@ namespace PacManSimple
         private int heroStep = 5;
         int verVelocity = 0;
         int horVelocity = 0;
+        int enemyStep = 3;
+        int verEnemyVelocity = 0;
+        int horEnemyVelocity = 0;
+
         int heroImageCount = 1;
         int enemyImageCount = 1;
         int score = 0;
@@ -123,6 +127,7 @@ namespace PacManSimple
         private void TimerMove_Tick(object sender, EventArgs e)
         {
             HeroMove();
+            EnemyMove();
         }
 
         private void HeroMove()
@@ -131,6 +136,12 @@ namespace PacManSimple
             Hero.Left += horVelocity;
             HeroBorderCollision();
             HeroFoodCollision();
+        }
+
+        private void EnemyMove()
+        {
+            Enemy.Top += verEnemyVelocity;
+            Enemy.Left += horEnemyVelocity;
         }
 
         private void TimerAnimate_Tick(object sender, EventArgs e)
@@ -167,5 +178,36 @@ namespace PacManSimple
         {
 
         }
+
+        private void RandomChangeEnemyDirection()
+        {
+            int directionCode = Rand.Next(1, 5);
+            if(directionCode == 1)
+            {
+                enemyDirection = "right";
+                verEnemyVelocity = 0;
+                horEnemyVelocity = enemyStep;
+            }
+            else if (directionCode == 2)
+            {
+                enemyDirection = "down";
+                verEnemyVelocity = enemyStep;
+                horEnemyVelocity = 0;
+            }
+            else if (directionCode == 3)
+            {
+                enemyDirection = "left";
+                verEnemyVelocity = 0;
+                horEnemyVelocity = -enemyStep;
+            }
+            else if (directionCode == 4)
+            {
+                enemyDirection = "up";
+                verEnemyVelocity = -enemyStep;
+                horEnemyVelocity = 0;
+            }
+        }
+
     }
 }
+

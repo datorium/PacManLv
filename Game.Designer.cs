@@ -43,7 +43,7 @@
             // Hero
             // 
             this.Hero.BackColor = System.Drawing.Color.Coral;
-            this.Hero.Location = new System.Drawing.Point(156, 91);
+            this.Hero.Location = new System.Drawing.Point(154, 143);
             this.Hero.Name = "Hero";
             this.Hero.Size = new System.Drawing.Size(150, 150);
             this.Hero.TabIndex = 0;
@@ -60,7 +60,7 @@
             // 
             // Enemy
             // 
-            this.Enemy.Location = new System.Drawing.Point(382, 297);
+            this.Enemy.Location = new System.Drawing.Point(417, 233);
             this.Enemy.Name = "Enemy";
             this.Enemy.Size = new System.Drawing.Size(80, 80);
             this.Enemy.TabIndex = 2;
