@@ -60,7 +60,8 @@
             // 
             // Enemy
             // 
-            this.Enemy.Location = new System.Drawing.Point(417, 233);
+            this.Enemy.BackColor = System.Drawing.Color.Red;
+            this.Enemy.Location = new System.Drawing.Point(363, 85);
             this.Enemy.Name = "Enemy";
             this.Enemy.Size = new System.Drawing.Size(80, 80);
             this.Enemy.TabIndex = 2;

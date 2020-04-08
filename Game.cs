@@ -215,7 +215,8 @@ namespace PacManSimple
         {
             if (Enemy.Top < 0)
             {
-                enemyDirection = "down";                
+                enemyDirection = "down";
+                EnemyBorderBounce();
             }
             else if (Enemy.Top + Enemy.Height > ClientRectangle.Height)
             {
