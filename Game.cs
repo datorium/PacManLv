@@ -18,13 +18,13 @@ namespace PacManSimple
         int enemyStep = 3;
         int verEnemyVelocity = 0;
         int horEnemyVelocity = 0;
-
         int heroImageCount = 1;
         int enemyImageCount = 1;
         int score = 0;
         string heroDirection = "right";
         string enemyDirection = "left";
         Random Rand = new Random();
+        Keys lastKeyCode;
 
         public Game()
         {
@@ -98,7 +98,12 @@ namespace PacManSimple
         }
 
         private void Game_KeyDown(object sender, KeyEventArgs e)
-        {            
+        {
+            if(e.KeyCode == lastKeyCode)
+            {
+                return;
+            }
+            lastKeyCode = e.KeyCode;            
             if(e.KeyCode == Keys.Up)
             {
                 verVelocity = -heroStep;
