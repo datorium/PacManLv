@@ -35,6 +35,7 @@
             this.TimerMove = new System.Windows.Forms.Timer(this.components);
             this.TimerAnimate = new System.Windows.Forms.Timer(this.components);
             this.ScoreLabel = new System.Windows.Forms.Label();
+            this.TimerHeroMelt = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Hero)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Food)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Enemy)).BeginInit();
@@ -87,6 +88,10 @@
             this.ScoreLabel.Text = "label1";
             this.ScoreLabel.Click += new System.EventHandler(this.ScoreLabel_Click);
             // 
+            // TimerHeroMelt
+            // 
+            this.TimerHeroMelt.Tick += new System.EventHandler(this.TimerHeroMelt_Tick);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -115,6 +120,7 @@
         private System.Windows.Forms.Timer TimerMove;
         private System.Windows.Forms.Timer TimerAnimate;
         private System.Windows.Forms.Label ScoreLabel;
+        private System.Windows.Forms.Timer TimerHeroMelt;
     }
 }
 

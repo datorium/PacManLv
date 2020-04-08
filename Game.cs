@@ -138,6 +138,7 @@ namespace PacManSimple
             Hero.Left += horVelocity;
             HeroBorderCollision();
             HeroFoodCollision();
+            HeroEnemyCollision();
         }
 
         private void EnemyMove()
@@ -241,6 +242,31 @@ namespace PacManSimple
             horEnemyVelocity *= -1;
         }
 
+        private void HeroEnemyCollision()
+        {
+            if (Hero.Bounds.IntersectsWith(Enemy.Bounds))
+            {
+                GameOver();
+            }
+        }
+
+        private void GameOver()
+        {
+            TimerAnimate.Stop();
+            TimerMove.Stop();
+        }
+
+        private void TimerHeroMelt_Tick(object sender, EventArgs e)
+        {
+            string heroImageName;
+            heroImageName = "pacman_melt_" + heroImageCount;
+            Hero.Image = (Image)Properties.Resources.ResourceManager.GetObject(heroImageName);
+            heroImageCount += 1;
+            if (heroImageCount > 14)
+            {
+                TimerHeroMelt.Stop();
+            }
+        }
     }
 }
 
