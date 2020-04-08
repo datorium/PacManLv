@@ -255,7 +255,7 @@ namespace PacManSimple
             TimerAnimate.Stop();
             TimerMove.Stop();
             heroImageCount = 0;
-            TimerHeroMelt.Start();
+            TimerHeroMelt.Start();            
         }
 
         private void TimerHeroMelt_Tick(object sender, EventArgs e)
@@ -267,6 +267,7 @@ namespace PacManSimple
             if (heroImageCount > 14)
             {
                 TimerHeroMelt.Stop();
+                LabelGameOver.Visible = true;
             }
         }
     }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.Hero = new System.Windows.Forms.PictureBox();
             this.Food = new System.Windows.Forms.PictureBox();
             this.Enemy = new System.Windows.Forms.PictureBox();
@@ -36,6 +37,7 @@
             this.TimerAnimate = new System.Windows.Forms.Timer(this.components);
             this.ScoreLabel = new System.Windows.Forms.Label();
             this.TimerHeroMelt = new System.Windows.Forms.Timer(this.components);
+            this.LabelGameOver = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Hero)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Food)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Enemy)).BeginInit();
@@ -93,17 +95,31 @@
             this.TimerHeroMelt.Interval = 150;
             this.TimerHeroMelt.Tick += new System.EventHandler(this.TimerHeroMelt_Tick);
             // 
+            // LabelGameOver
+            // 
+            this.LabelGameOver.AutoSize = true;
+            this.LabelGameOver.Font = new System.Drawing.Font("OCR A Extended", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelGameOver.ForeColor = System.Drawing.Color.Yellow;
+            this.LabelGameOver.Location = new System.Drawing.Point(233, 191);
+            this.LabelGameOver.Name = "LabelGameOver";
+            this.LabelGameOver.Size = new System.Drawing.Size(351, 63);
+            this.LabelGameOver.TabIndex = 4;
+            this.LabelGameOver.Text = "Game Over";
+            this.LabelGameOver.Visible = false;
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.LabelGameOver);
             this.Controls.Add(this.ScoreLabel);
             this.Controls.Add(this.Enemy);
             this.Controls.Add(this.Food);
             this.Controls.Add(this.Hero);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Game";
-            this.Text = "Form1";
+            this.Text = "Datorium Pac-Man Elements";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.Hero)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Food)).EndInit();
@@ -122,6 +138,7 @@
         private System.Windows.Forms.Timer TimerAnimate;
         private System.Windows.Forms.Label ScoreLabel;
         private System.Windows.Forms.Timer TimerHeroMelt;
+        private System.Windows.Forms.Label LabelGameOver;
     }
 }
 
