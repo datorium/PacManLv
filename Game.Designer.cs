@@ -90,6 +90,7 @@
             // 
             // TimerHeroMelt
             // 
+            this.TimerHeroMelt.Interval = 150;
             this.TimerHeroMelt.Tick += new System.EventHandler(this.TimerHeroMelt_Tick);
             // 
             // Game

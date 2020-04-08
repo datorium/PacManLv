@@ -254,6 +254,8 @@ namespace PacManSimple
         {
             TimerAnimate.Stop();
             TimerMove.Stop();
+            heroImageCount = 0;
+            TimerHeroMelt.Start();
         }
 
         private void TimerHeroMelt_Tick(object sender, EventArgs e)
